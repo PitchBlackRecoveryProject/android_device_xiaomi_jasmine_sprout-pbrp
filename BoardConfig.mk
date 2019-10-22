@@ -77,6 +77,7 @@ TW_RECOVERY_ADDITIONAL_RELINK_FILES := ${OUT_DIR}/target/product/jasmine_sprout/
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_USE_TOOLBOX := true
+TW_DEVICE_VERSION := by Manish4586
 
 # Security Patch Hack to prevent Anti Rollback
 PLATFORM_SECURITY_PATCH := 2025-12-31
