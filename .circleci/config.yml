@@ -1,7 +1,8 @@
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
+      # new all-in-one docker image
       - image: fr3akyphantom/droid-builder:latest
     environment:
       MANIFEST_BRANCH: 'android-9.0'
@@ -10,10 +11,12 @@ jobs:
       VENDOR: 'xiaomi'
       CODENAME: 'jasmine_sprout'
       BUILD_LUNCH: 'omni_jasmine_sprout-eng'
+      # Remove the following when Publishing Official
       TEST_BUILD: 'true'
+      # Only for Official Build, uncomment following
+      # PB_OFFICIAL: 'true'
     working_directory: /home/builder/pitchblack
     steps:
-      - checkout
       - run:
           name: AIO Build
           command: |
@@ -21,7 +24,6 @@ jobs:
             git config --global user.email $GitHubMail
             git config --global user.name $GitHubName
             git config --global color.ui true
-            export TEST_BUILD=true
             wget -q https://raw.githubusercontent.com/PitchBlackRecoveryProject/vendor_pb/pb/build.sh
             source build.sh
 workflows:
@@ -29,7 +31,4 @@ workflows:
   build_and_test:
     jobs:
       - build:
-          filters:
-            branches:
-              only: android-9.0
           context: org-global
