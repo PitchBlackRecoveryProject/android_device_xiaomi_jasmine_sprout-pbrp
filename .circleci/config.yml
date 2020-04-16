@@ -9,7 +9,7 @@ jobs:
       VERSION: '2.9.0'
       VENDOR: 'xiaomi'
       CODENAME: 'jasmine_sprout'
-      BUILD_LUNCH: 'omni_jasmine_sprout-userdebug'
+      BUILD_LUNCH: 'omni_jasmine_sprout-eng'
       TEST_BUILD: 'true'
     working_directory: /home/builder/pitchblack
     steps:
